@@ -15,6 +15,7 @@ function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
 	
+	
 
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
@@ -27,26 +28,22 @@ function setup() {
 	groundSprite=createSprite(width/2, height-35, width,10);
 	groundSprite.shapeColor=color(255)
 
-	redB=createSprite(400,650,200,20);
-	redB.shapeColor=("red");
-
-	redB2=createSprite(300,620,20,80);
-	redB2.shapeColor=("red");
-
-
-	redB3=createSprite(500,620,20,80);
-	redB3.shapeColor=("red");
-
+	
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.5, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.9, isStatic:true});
 	World.add(world, packageBody);
 	
+	box1 = new Box(300,620,10,60);
+	box2 = new Box(500,620,10,60);
+	box3= new Box(400,650,200,10)
 
 	//Create a Ground
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
+
+	
 
 
 	Engine.run(engine);
@@ -63,7 +60,9 @@ function draw() {
  
  
  
- 
+box1.display()
+box2.display()
+box3.display()
  
   drawSprites();
  
